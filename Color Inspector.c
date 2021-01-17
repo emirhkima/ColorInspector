@@ -1,8 +1,17 @@
-void demarrage(){
-	displayCenteredBigTextLine(6,"Bienvenue");
+/*
+						Color Inspector est un robot LEGO. L'application est codée en RobotC.
+		   Cette machine est déstinée aux personnes daltoniennes et non-voyantes, elle détecte les couleurs et les affiche sur l'écran,
+		joue des pistes audios correspondantes aux différents textes affichés sur l'écran, initie la rotation d'un disque gravé en braille.
+*/
+
+
+
+void demarrage()
+{
+	displayCenteredBigTextLine(6,"Bienvenue"); /*Affiche le message "Bienvenue"*/
 	sleep(2000);
-	eraseDisplay();
-	drawBmpfile(0,127,"Awake");
+	eraseDisplay(); /*Supprime le message affiché*/
+	drawBmpfile(0,127,"Awake"); /*Animation de démarrage*/
 	sleep(2000);
 }
 
@@ -14,9 +23,9 @@ task main()
 	SensorType[S2]=sensorEV3_Color;
 	setSensorMode(S2,modeEV3Color_Color);
 	SensorType[S3]=sensorSoundDB;
-	setSoundVolume(100);
-	while (true)/*numéro 1*/{
-		
+	setSoundVolume(100); /*Réglage automatique du volume à 100% pour les personnes non-voyantes*/
+	while (true)
+	{
 		if(getButtonPress(buttonRight)==1)/*Si la première touche du mot de passe est correcte*/{
 		sleep(300);
 		while(true)/*numéro 2*/{
